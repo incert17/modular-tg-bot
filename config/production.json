@@ -1,0 +1,38 @@
+{
+  "LOG_LEVEL": "info",
+  "ENABLE_ANALYTICS": true,
+  "ENABLE_METRICS": true,
+  "RATE_LIMIT": 30,
+  "production": {
+    "features": {
+      "hotReload": false,
+      "verboseLogging": false,
+      "debugMode": false,
+      "compression": true,
+      "securityHeaders": true
+    },
+    "server": {
+      "host": "0.0.0.0",
+      "trustProxy": true
+    },
+    "telegram": {
+      "polling": {
+        "interval": 300
+      },
+      "webhook": {
+        "maxConnections": 40,
+        "allowedUpdates": [
+          "message",
+          "callback_query",
+          "inline_query"
+        ]
+      }
+    },
+    "monitoring": {
+      "healthCheck": true,
+      "metricsCollection": true,
+      "errorReporting": true
+    }
+  }
+}
+

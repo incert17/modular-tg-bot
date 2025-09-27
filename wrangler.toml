@@ -1,0 +1,57 @@
+name = "modular-telegram-bot"
+main = "bot.js"
+compatibility_date = "2023-10-30"
+node_compat = true
+
+[env.production]
+name = "modular-telegram-bot-prod"
+vars = { NODE_ENV = "production", DEPLOYMENT_MODE = "webhook" }
+
+[env.staging]
+name = "modular-telegram-bot-staging"
+vars = { NODE_ENV = "staging", DEPLOYMENT_MODE = "webhook" }
+
+# Environment variables (set via wrangler secret put)
+# TELEGRAM_BOT_TOKEN
+# WEBHOOK_SECRET
+# HEALTH_CHECK_TOKEN
+# ADMIN_USER_IDS
+# OPENWEATHER_API_KEY
+
+# Routes configuration
+[[routes]]
+pattern = "your-domain.com/webhook"
+zone_name = "your-domain.com"
+
+[[routes]]
+pattern = "your-domain.com/health"
+zone_name = "your-domain.com"
+
+[[routes]]
+pattern = "your-domain.com/bot/*"
+zone_name = "your-domain.com"
+
+# KV Namespaces (optional, for future use)
+# [[kv_namespaces]]
+# binding = "BOT_DATA"
+# id = "your-kv-namespace-id"
+# preview_id = "your-preview-kv-namespace-id"
+
+# Durable Objects (optional, for future use)
+# [[durable_objects.bindings]]
+# name = "BOT_STATE"
+# class_name = "BotState"
+
+# R2 Buckets (optional, for file storage)
+# [[r2_buckets]]
+# binding = "BOT_FILES"
+# bucket_name = "telegram-bot-files"
+
+# Analytics Engine (optional, for metrics)
+# [[analytics_engine_datasets]]
+# binding = "BOT_ANALYTICS"
+
+# Limits
+[limits]
+cpu_ms = 30000
+

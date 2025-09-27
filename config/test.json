@@ -1,0 +1,30 @@
+{
+  "LOG_LEVEL": "error",
+  "DEPLOYMENT_MODE": "polling",
+  "ENABLE_ANALYTICS": false,
+  "ENABLE_METRICS": false,
+  "RATE_LIMIT": 100,
+  "test": {
+    "features": {
+      "hotReload": false,
+      "verboseLogging": false,
+      "debugMode": false,
+      "mockExternalAPIs": true
+    },
+    "server": {
+      "host": "localhost",
+      "port": 0
+    },
+    "telegram": {
+      "polling": {
+        "interval": 100
+      }
+    },
+    "testing": {
+      "timeout": 5000,
+      "retries": 3,
+      "mockBot": true
+    }
+  }
+}
+

@@ -1,0 +1,50 @@
+{
+  "name": "modular-telegram-bot",
+  "version": "1.0.0",
+  "description": "A highly modular Telegram bot framework for easy feature extension and deployment",
+  "main": "bot.js",
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "scripts": {
+    "start": "node bot.js",
+    "dev": "NODE_ENV=development node bot.js",
+    "webhook": "NODE_ENV=production DEPLOYMENT_MODE=webhook node bot.js",
+    "polling": "NODE_ENV=production DEPLOYMENT_MODE=polling node bot.js",
+    "setup": "bash scripts/setup.sh",
+    "deploy": "bash scripts/deploy.sh",
+    "health": "node scripts/health-check.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "telegram",
+    "bot",
+    "modular",
+    "serverless",
+    "webhook",
+    "polling",
+    "deployment"
+  ],
+  "author": "Modular Bot Framework",
+  "license": "MIT",
+  "dependencies": {
+    "node-telegram-bot-api": "^0.64.0",
+    "express": "^4.18.2",
+    "dotenv": "^16.3.1",
+    "winston": "^3.11.0",
+    "axios": "^1.6.0",
+    "cors": "^2.8.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/modular-telegram-bot.git"
+  },
+  "bugs": {
+    "url": "https://github.com/your-username/modular-telegram-bot/issues"
+  },
+  "homepage": "https://github.com/your-username/modular-telegram-bot#readme"
+}
+

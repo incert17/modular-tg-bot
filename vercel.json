@@ -1,0 +1,49 @@
+{
+  "version": 2,
+  "name": "modular-telegram-bot",
+  "builds": [
+    {
+      "src": "bot.js",
+      "use": "@vercel/node",
+      "config": {
+        "maxLambdaSize": "50mb"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/webhook",
+      "dest": "/bot.js",
+      "methods": ["POST"]
+    },
+    {
+      "src": "/health",
+      "dest": "/bot.js",
+      "methods": ["GET"]
+    },
+    {
+      "src": "/bot/info",
+      "dest": "/bot.js",
+      "methods": ["GET"]
+    },
+    {
+      "src": "/",
+      "dest": "/bot.js",
+      "methods": ["GET"]
+    }
+  ],
+  "env": {
+    "NODE_ENV": "production",
+    "DEPLOYMENT_MODE": "webhook"
+  },
+  "functions": {
+    "bot.js": {
+      "maxDuration": 30
+    }
+  },
+  "regions": ["iad1"],
+  "github": {
+    "autoAlias": false
+  }
+}
+

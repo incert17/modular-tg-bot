@@ -1,0 +1,24 @@
+{
+  "LOG_LEVEL": "debug",
+  "DEPLOYMENT_MODE": "polling",
+  "ENABLE_ANALYTICS": false,
+  "ENABLE_METRICS": false,
+  "RATE_LIMIT": 60,
+  "development": {
+    "features": {
+      "hotReload": true,
+      "verboseLogging": true,
+      "debugMode": true
+    },
+    "server": {
+      "host": "localhost",
+      "port": 3000
+    },
+    "telegram": {
+      "polling": {
+        "interval": 1000
+      }
+    }
+  }
+}
+

@@ -1,0 +1,66 @@
+services:
+  # Web Service (Webhook Mode)
+  - type: web
+    name: telegram-bot-webhook
+    env: node
+    plan: free
+    region: oregon
+    buildCommand: npm install
+    startCommand: npm run webhook
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DEPLOYMENT_MODE
+        value: webhook
+      - key: PORT
+        value: 10000
+      - key: WEBHOOK_URL
+        fromService:
+          type: web
+          name: telegram-bot-webhook
+          property: host
+      - key: TELEGRAM_BOT_TOKEN
+        sync: false
+      - key: WEBHOOK_SECRET
+        generateValue: true
+      - key: HEALTH_CHECK_TOKEN
+        generateValue: true
+      - key: ADMIN_USER_IDS
+        sync: false
+      - key: OPENWEATHER_API_KEY
+        sync: false
+    autoDeploy: true
+    
+  # Background Worker (Polling Mode)
+  - type: worker
+    name: telegram-bot-polling
+    env: node
+    plan: free
+    region: oregon
+    buildCommand: npm install
+    startCommand: npm run polling
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DEPLOYMENT_MODE
+        value: polling
+      - key: PORT
+        value: 10000
+      - key: TELEGRAM_BOT_TOKEN
+        sync: false
+      - key: HEALTH_CHECK_TOKEN
+        generateValue: true
+      - key: ADMIN_USER_IDS
+        sync: false
+      - key: OPENWEATHER_API_KEY
+        sync: false
+    autoDeploy: false
+
+databases:
+  # Optional: Add database if needed for future modules
+  # - name: telegram-bot-db
+  #   databaseName: telegram_bot
+  #   user: bot_user
+  #   plan: free
+
