@@ -40,7 +40,7 @@ A clumsy attempt at a modular Telegram bot.
 ### 1. Clone and Setup
 ```bash
 git clone <repository-url>
-cd modular-telegram-bot
+cd telegram-bot
 npm install
 bash scripts/setup.sh
 ```
