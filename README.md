@@ -1,6 +1,6 @@
-# 🤖 Modular Telegram Bot Framework
+# 🤖 Modular Telegram Bot
 
-A highly modular, production-ready Telegram bot framework that allows developers to easily add new features as separate modules without modifying the core bot code. Designed for seamless deployment across serverless platforms (Vercel, Cloudflare Workers) and traditional servers (Railway, Render, Docker).
+A clumsy attempt at a modular Telegram bot. 
 
 ## ✨ Features
 
@@ -29,39 +29,6 @@ A highly modular, production-ready Telegram bot framework that allows developers
 - **Rich CLI Tools**: Setup, deployment, and health check scripts
 - **Comprehensive Documentation**: Detailed guides and examples
 - **Hot Reload**: Development mode with automatic restarts
-
-## 📦 Built-in Modules
-
-### 🔊 **Echo Module**
-Text manipulation and utility commands:
-- `/echo <text>` - Echo back the provided text
-- `/reverse <text>` - Reverse the text
-- `/uppercase <text>` - Convert to uppercase
-- `/lowercase <text>` - Convert to lowercase
-- `/count <text>` - Count characters, words, and lines
-
-### 🎲 **Random Module**
-Random generation utilities:
-- `/random [max]` or `/random [min] [max]` - Generate random numbers
-- `/flip` - Coin flip
-- `/dice [sides] [count]` - Roll dice
-- `/choose option1 option2...` - Choose randomly from options
-- `/shuffle item1 item2...` - Shuffle a list
-- `/password [length] [complexity]` - Generate secure passwords
-
-### 👤 **Admin Module**
-Bot management and information:
-- `/start` - Welcome message and bot introduction
-- `/help [command]` - Show available commands or detailed help
-- `/modules` - List loaded modules (admin only)
-- `/status` - Bot status and statistics (admin only)
-- `/info` - Bot information
-- `/ping` - Check bot responsiveness
-
-### 🌤️ **Weather Module**
-Weather information (requires OpenWeather API key):
-- `/weather <city>` - Current weather conditions
-- `/forecast <city>` - 5-day weather forecast
 
 ## 🚀 Quick Start
 
@@ -94,45 +61,6 @@ npm run dev
 ### 3. Test Your Bot
 Send `/start` to your bot on Telegram to verify it's working!
 
-## 📁 Project Structure
-
-```
-telegram-bot/
-├── .env.example              # Environment variables template
-├── .gitignore               # Git ignore rules
-├── package.json             # Dependencies and scripts
-├── bot.js                   # Main entry point
-├── src/
-│   ├── core/                # Core framework files
-│   │   ├── Bot.js          # Main bot class
-│   │   ├── ModuleLoader.js # Module loading system
-│   │   └── BaseModule.js   # Base class for modules
-│   ├── modules/             # Bot modules
-│   │   ├── echo.js         # Text manipulation commands
-│   │   ├── random.js       # Random generation utilities
-│   │   ├── admin.js        # Admin and help commands
-│   │   └── weather.js      # Weather information
-│   ├── utils/               # Utility functions
-│   │   ├── config.js       # Configuration loader
-│   │   ├── logger.js       # Logging system
-│   │   └── validators.js   # Input validation
-│   └── handlers/            # Deployment handlers
-│       ├── webhook.js      # Webhook handler (serverless)
-│       └── polling.js      # Polling handler (servers)
-├── config/                  # Environment-specific configs
-│   ├── development.json    # Development settings
-│   ├── production.json     # Production settings
-│   └── test.json          # Test settings
-├── scripts/                 # Utility scripts
-│   ├── setup.sh           # Project setup script
-│   ├── deploy.sh          # Deployment helper
-│   └── health-check.js    # Health monitoring
-├── vercel.json             # Vercel deployment config
-├── render.yaml             # Render deployment config
-├── wrangler.toml           # Cloudflare Workers config
-├── Dockerfile              # Docker container config
-└── .dockerignore           # Docker ignore rules
-```
 
 ## ⚙️ Configuration
 
@@ -448,28 +376,13 @@ node -e "console.log(require('./src/utils/config').config)"
 node -e "require('./src/core/ModuleLoader')"
 ```
 
-## 🗺️ Roadmap
+Note: Some parts of this bot are powered by AI-generated code. While it may not be the most optimized or elegant solution, it gets the job done!
 
-### Planned Features
-
-- **Database Integration**: Built-in support for PostgreSQL, MongoDB
-- **Plugin Marketplace**: Community module repository
-- **Web Dashboard**: Web interface for bot management
-- **Analytics**: Built-in usage analytics and metrics
-- **Multi-language**: Internationalization support
-- **Inline Queries**: Support for inline query handling
-- **File Handling**: Enhanced file upload/download capabilities
-
-### Version History
-
-- **v1.0.0**: Initial release with core framework and basic modules
-- **v1.1.0**: Enhanced error handling and logging (planned)
-- **v1.2.0**: Database integration (planned)
-- **v2.0.0**: Web dashboard and analytics (planned)
+### Will be switching to telegraf soon 
 
 ---
 
-**Built with ❤️ by the Modular Bot Framework Team**
+**Built with ❤️**
 
 *Happy botting! 🤖*
 
